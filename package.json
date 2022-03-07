@@ -1,5 +1,15 @@
 {
+  "name": "react-native-platform-color",
+  "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
+  "types": "lib/typescript/index.d.ts",
+  "module": "lib/module/index.js",
+  "react-native": "src/index.tsx",
+  "source": "src/index.tsx",
+  "files": [
+    "src",
+    "lib"
+  ],
   "scripts": {
     "build:commonjs": "babel src --out-dir lib/commonjs --extensions '.ts,.tsx' --source-maps",
     "build:module": "tsc src/*.tsx --module es2015 --target es5 --jsx 'react-native' --sourceMap --skipLibCheck --allowSyntheticDefaultImports --outDir lib/module",
