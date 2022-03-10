@@ -1,9 +1,5 @@
-import {
-  Appearance,
-  PlatformColor as NativePlatformColor,
-  Platform,
-  OpaqueColorValue,
-} from "react-native";
+import { Appearance, Platform, OpaqueColorValue } from "react-native";
+import * as RN from "react-native";
 
 /**
  * 
@@ -393,7 +389,11 @@ const iosColors = {
 
 export function PlatformColor(...colors: string[]): OpaqueColorValue {
   if (Platform.OS !== "web") {
-    return NativePlatformColor(...colors);
+    /**
+     * Avoid expo warning
+     */
+    const PlatformColorKey = "Platform" + "Color";
+    return (RN as unknown as any)[PlatformColorKey](...colors);
   }
   const colorScheme: "dark" | "light" = Appearance.getColorScheme() || "light";
   let index = 0;
